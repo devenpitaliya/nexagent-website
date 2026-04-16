@@ -21,7 +21,7 @@ const FOOTER_LINKS = {
 const SOCIAL_LINKS = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
   { icon: Twitter, label: 'Twitter / X', href: 'https://twitter.com' },
-  { icon: Mail, label: 'Email', href: 'mailto:hello@nexagent.ai' },
+  { icon: Mail, label: 'Email', href: 'mailto:devenpitaliya@gmail.com' },
 ]
 
 export default function Footer() {
@@ -91,11 +91,11 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Get in Touch</h4>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:hello@nexagent.ai"
+                href="mailto:devenpitaliya@gmail.com"
                 className="flex items-center gap-2 text-slate-500 hover:text-slate-300 text-sm transition-colors group"
               >
                 <Mail className="w-3.5 h-3.5" />
-                hello@nexagent.ai
+                devenpitaliya@gmail.com
               </a>
               <a
                 href="https://linkedin.com"
