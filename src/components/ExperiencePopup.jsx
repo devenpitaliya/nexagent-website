@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { X, Sparkles, ArrowRight } from 'lucide-react'
+import { Sparkles, ArrowRight } from 'lucide-react'
 
 export default function ExperiencePopup() {
   const [visible, setVisible] = useState(false)
@@ -43,15 +43,7 @@ export default function ExperiencePopup() {
               {/* Background glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-purple-500/8 blur-[60px] rounded-full pointer-events-none" />
 
-              {/* Close button */}
-              <button
-                onClick={close}
-                className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-
-              <div className="relative z-10 p-8">
+<div className="relative z-10 p-8">
                 {/* Badge */}
                 <div className="flex items-center gap-2 mb-5">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-widest">
