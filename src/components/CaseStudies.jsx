@@ -16,10 +16,10 @@ const CASES = [
       { value: '4.8★', label: 'Customer Rating' },
     ],
     quote: 'We went from 48-hour replies to 4-minute responses. Our support team now handles only the hard stuff.',
-    colorText: 'text-indigo-400',
-    colorBg: 'bg-indigo-500/10',
-    colorBorder: 'border-indigo-500/20',
-    gradient: 'from-indigo-500/15',
+    quoteName: 'Sarah Mitchell, COO @ StyleForward',
+    colorText: 'text-orange-500',
+    colorBg: 'bg-orange-50',
+    colorBorder: 'border-orange-200',
   },
   {
     icon: Code2,
@@ -35,10 +35,10 @@ const CASES = [
       { value: '99.2%', label: 'Data Accuracy' },
     ],
     quote: 'What took three days a week now just happens automatically. Our analysts actually do analysis now.',
-    colorText: 'text-cyan-400',
-    colorBg: 'bg-cyan-500/10',
-    colorBorder: 'border-cyan-500/20',
-    gradient: 'from-cyan-500/15',
+    quoteName: 'James Thornton, Head of Data @ PivotMetrics',
+    colorText: 'text-amber-600',
+    colorBg: 'bg-amber-50',
+    colorBorder: 'border-amber-200',
   },
   {
     icon: Heart,
@@ -54,17 +54,17 @@ const CASES = [
       { value: '2 FTE', label: 'Equivalent Capacity' },
     ],
     quote: 'We effectively added two full-time employees worth of capacity — without hiring anyone.',
-    colorText: 'text-purple-400',
-    colorBg: 'bg-purple-500/10',
-    colorBorder: 'border-purple-500/20',
-    gradient: 'from-purple-500/15',
+    quoteName: 'Dr. Priya Nair, Clinical Director @ WellPath Clinics',
+    colorText: 'text-rose-500',
+    colorBg: 'bg-rose-50',
+    colorBorder: 'border-rose-200',
   },
 ]
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="section-padding relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-indigo-500/4 blur-[100px] rounded-full pointer-events-none" />
+    <section id="case-studies" className="section-padding relative overflow-hidden bg-slate-50/60">
+      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-orange-400/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container-wide relative z-10">
         {/* Header */}
@@ -75,14 +75,14 @@ export default function CaseStudies() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <span className="section-label border-purple-500/25 bg-purple-500/8 text-purple-400 mb-4 inline-flex">
+          <span className="section-label border-rose-200 bg-rose-50 text-rose-500 mb-4 inline-flex">
             Case Studies
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4">
             Real Results,{' '}
             <span className="text-gradient-purple">Real Businesses</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             Here's how we've turned operational drag into competitive advantage for our clients.
           </p>
         </motion.div>
@@ -99,7 +99,7 @@ export default function CaseStudies() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className={`glass-card rounded-2xl overflow-hidden border ${item.colorBorder}`}
+                className={`glass-card rounded-2xl overflow-hidden border ${item.colorBorder} shadow-lg`}
               >
                 <div className={`grid lg:grid-cols-5 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Left: story content (3 cols) */}
@@ -113,34 +113,39 @@ export default function CaseStudies() {
                         <p className={`text-xs font-semibold uppercase tracking-wider ${item.colorText}`}>
                           {item.industry}
                         </p>
-                        <p className="text-xs text-slate-600">{item.company}</p>
+                        <p className="text-xs text-slate-400">{item.company}</p>
                       </div>
                     </div>
 
                     {/* Challenge */}
                     <div className="mb-5">
-                      <h4 className="text-[11px] font-semibold uppercase tracking-widest text-slate-500 mb-2">The Challenge</h4>
-                      <p className="text-slate-300 text-sm leading-relaxed">{item.challenge}</p>
+                      <h4 className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mb-2">The Challenge</h4>
+                      <p className="text-slate-700 text-sm leading-relaxed">{item.challenge}</p>
                     </div>
 
                     {/* What was built */}
                     <div className="mb-6">
-                      <h4 className="text-[11px] font-semibold uppercase tracking-widest text-slate-500 mb-2">What We Built</h4>
-                      <p className="text-slate-300 text-sm leading-relaxed">{item.built}</p>
+                      <h4 className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mb-2">What We Built</h4>
+                      <p className="text-slate-700 text-sm leading-relaxed">{item.built}</p>
                     </div>
 
                     {/* Quote */}
                     <div className={`flex gap-3 p-4 rounded-xl ${item.colorBg} border ${item.colorBorder}`}>
                       <Quote className={`w-4 h-4 ${item.colorText} flex-shrink-0 mt-0.5`} />
-                      <p className={`text-sm italic ${item.colorText} leading-relaxed`}>
-                        {item.quote}
-                      </p>
+                      <div>
+                        <p className={`text-sm italic ${item.colorText} leading-relaxed mb-2`}>
+                          {item.quote}
+                        </p>
+                        <p className={`text-xs font-semibold ${item.colorText} opacity-70`}>
+                          — {item.quoteName}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Right: stats (2 cols) */}
-                  <div className={`lg:col-span-2 ${item.colorBg} border-l border-white/[0.06] p-7 lg:p-9 flex flex-col justify-center gap-6 ${isReversed ? 'lg:order-1 lg:border-l-0 lg:border-r border-white/[0.06]' : ''}`}>
-                    <h4 className="text-[11px] font-semibold uppercase tracking-widest text-slate-500">Results</h4>
+                  <div className={`lg:col-span-2 ${item.colorBg} border-l ${item.colorBorder} p-7 lg:p-9 flex flex-col justify-center gap-6 ${isReversed ? 'lg:order-1 lg:border-l-0 lg:border-r' : ''}`}>
+                    <h4 className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Results</h4>
                     {item.stats.map((stat) => (
                       <div key={stat.label} className="flex flex-col">
                         <span className={`text-4xl lg:text-5xl font-black ${item.colorText} leading-none`}>

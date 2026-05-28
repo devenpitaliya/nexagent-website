@@ -9,12 +9,11 @@ const STEPS = [
     description:
       'We deep-dive into your current operations — understanding every bottleneck, repetitive task, and manual handoff that costs you time and money.',
     details: ['Process discovery call', 'Bottleneck identification', 'ROI analysis', 'Automation roadmap'],
-    color: 'indigo',
-    colorText: 'text-indigo-400',
-    colorBg: 'bg-indigo-500/10',
-    colorBorder: 'border-indigo-500/25',
-    colorGlow: 'shadow-indigo-500/10',
-    gradient: 'from-indigo-500 to-purple-500',
+    colorText: 'text-orange-500',
+    colorBg: 'bg-orange-50',
+    colorBorder: 'border-orange-200',
+    colorGlow: 'shadow-orange-100',
+    gradient: 'from-orange-500 to-amber-400',
   },
   {
     number: '02',
@@ -23,12 +22,11 @@ const STEPS = [
     description:
       'Our engineers design custom AI agents tailored to your exact workflow — not generic tools, but purpose-built systems that speak your business language.',
     details: ['Custom agent design', 'LLM integration', 'Workflow logic', 'Integration with your tools'],
-    color: 'purple',
-    colorText: 'text-purple-400',
-    colorBg: 'bg-purple-500/10',
-    colorBorder: 'border-purple-500/25',
-    colorGlow: 'shadow-purple-500/10',
-    gradient: 'from-purple-500 to-cyan-500',
+    colorText: 'text-amber-500',
+    colorBg: 'bg-amber-50',
+    colorBorder: 'border-amber-200',
+    colorGlow: 'shadow-amber-100',
+    gradient: 'from-amber-500 to-orange-400',
   },
   {
     number: '03',
@@ -37,12 +35,11 @@ const STEPS = [
     description:
       'We ship to production, monitor performance, and continuously tune your agents for better accuracy, speed, and cost efficiency — all with zero disruption to your team.',
     details: ['Production deployment', 'Real-time monitoring', 'Ongoing optimization', 'Weekly performance reports'],
-    color: 'cyan',
-    colorText: 'text-cyan-400',
-    colorBg: 'bg-cyan-500/10',
-    colorBorder: 'border-cyan-500/25',
-    colorGlow: 'shadow-cyan-500/10',
-    gradient: 'from-cyan-500 to-indigo-500',
+    colorText: 'text-rose-500',
+    colorBg: 'bg-rose-50',
+    colorBorder: 'border-rose-200',
+    colorGlow: 'shadow-rose-100',
+    gradient: 'from-rose-500 to-orange-400',
   },
 ]
 
@@ -57,9 +54,8 @@ const cardVariants = {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="section-padding relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-indigo-500/4 blur-[120px] rounded-full pointer-events-none" />
+    <section id="how-it-works" className="section-padding relative overflow-hidden bg-orange-50/40">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-orange-400/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container-wide relative z-10">
         {/* Section header */}
@@ -70,14 +66,14 @@ export default function HowItWorks() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="section-label border-indigo-500/25 bg-indigo-500/8 text-indigo-400 mb-4 inline-flex">
+          <span className="section-label border-orange-200 bg-orange-50 text-orange-500 mb-4 inline-flex">
             How It Works
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4">
             Simple. Powerful.{' '}
             <span className="text-gradient">Automatic.</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
             From discovery to deployment in under 2 weeks. We handle the complexity
             — you just watch the results roll in.
           </p>
@@ -86,7 +82,7 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 relative">
           {/* Desktop connector line */}
-          <div className="hidden lg:block absolute top-[60px] left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-px bg-gradient-to-r from-indigo-500/30 via-purple-500/30 to-cyan-500/30" />
+          <div className="hidden lg:block absolute top-[60px] left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-px bg-gradient-to-r from-orange-400/40 via-amber-400/40 to-rose-400/40" />
 
           {STEPS.map((step, i) => {
             const Icon = step.icon
@@ -106,16 +102,16 @@ export default function HowItWorks() {
                     <div className={`relative w-12 h-12 rounded-xl ${step.colorBg} border ${step.colorBorder} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className={`w-5 h-5 ${step.colorText}`} />
                       {/* Connector dot for desktop */}
-                      <div className={`hidden lg:block absolute -top-[33px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 bg-[#07080f] border-indigo-500/40`} />
+                      <div className="hidden lg:block absolute -top-[33px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 bg-white border-orange-300" />
                     </div>
-                    <span className={`text-5xl font-black ${step.colorText} opacity-20 leading-none mt-0.5`}>
+                    <span className={`text-5xl font-black ${step.colorText} opacity-15 leading-none mt-0.5`}>
                       {step.number}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-white font-bold text-xl mb-3">{step.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-5">{step.description}</p>
+                  <h3 className="text-slate-900 font-bold text-xl mb-3">{step.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{step.description}</p>
 
                   {/* Detail list */}
                   <ul className="flex flex-col gap-2">
@@ -128,7 +124,7 @@ export default function HowItWorks() {
                   </ul>
 
                   {/* Bottom gradient line */}
-                  <div className={`absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r ${step.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+                  <div className={`absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r ${step.gradient} opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
                 </div>
               </motion.div>
             )
@@ -145,7 +141,7 @@ export default function HowItWorks() {
         >
           <a
             href="#solutions"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-colors group"
+            className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors group"
           >
             See what we can automate for you
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

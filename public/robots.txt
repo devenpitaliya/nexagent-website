@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block nothing — full site is indexable
+Disallow:
+
+Sitemap: https://nexagent.ai/sitemap.xml

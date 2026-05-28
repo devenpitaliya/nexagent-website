@@ -23,7 +23,6 @@ export default function ParticleField() {
     ro.observe(canvas.parentElement || document.body)
     window.addEventListener('resize', resize, { passive: true })
 
-    // Initialise particles
     const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
       x:    Math.random() * canvas.width,
       y:    Math.random() * canvas.height,
@@ -44,9 +43,7 @@ export default function ParticleField() {
       const W = canvas.width
       const H = canvas.height
 
-      // ── Update ──
       for (const p of particles) {
-        // Cursor repulsion
         const dx   = p.x - mouse.current.x
         const dy   = p.y - mouse.current.y
         const dist = Math.hypot(dx, dy)
@@ -56,11 +53,9 @@ export default function ParticleField() {
           p.vy += (dy / dist) * force
         }
 
-        // Natural drift randomness
         p.vx += (Math.random() - 0.5) * 0.008
         p.vy += (Math.random() - 0.5) * 0.008
 
-        // Speed damping + cap
         p.vx *= 0.992
         p.vy *= 0.992
         const spd = Math.hypot(p.vx, p.vy)
@@ -69,46 +64,41 @@ export default function ParticleField() {
         p.x += p.vx
         p.y += p.vy
 
-        // Wrap around edges
         if (p.x < 0)  p.x = W
         if (p.x > W)  p.x = 0
         if (p.y < 0)  p.y = H
         if (p.y > H)  p.y = 0
       }
 
-      // ── Draw connections ──
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx   = particles[i].x - particles[j].x
           const dy   = particles[i].y - particles[j].y
           const dist = Math.hypot(dx, dy)
           if (dist < MAX_LINK_DIST) {
-            const alpha = (1 - dist / MAX_LINK_DIST) * 0.18
+            const alpha = (1 - dist / MAX_LINK_DIST) * 0.15
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(99,102,241,${alpha})`
+            ctx.strokeStyle = `rgba(249,115,22,${alpha})`
             ctx.lineWidth = 0.6
             ctx.stroke()
           }
         }
       }
 
-      // ── Draw particles ──
       for (const p of particles) {
-        // Glow halo
         const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 4)
-        glow.addColorStop(0, 'rgba(120,140,255,0.35)')
-        glow.addColorStop(1, 'rgba(99,102,241,0)')
+        glow.addColorStop(0, 'rgba(249,115,22,0.2)')
+        glow.addColorStop(1, 'rgba(249,115,22,0)')
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2)
         ctx.fillStyle = glow
         ctx.fill()
 
-        // Core dot
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(148,160,255,0.55)'
+        ctx.fillStyle = 'rgba(249,115,22,0.35)'
         ctx.fill()
       }
 
