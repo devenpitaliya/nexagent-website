@@ -6,6 +6,7 @@ import CursorGlow from './components/effects/CursorGlow'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FloatingCTA from './components/FloatingCTA'
+import ExperiencePopup from './components/ExperiencePopup'
 
 const WhatWeAutomate    = lazy(() => import('./components/WhatWeAutomate'))
 const OnboardingTimeline = lazy(() => import('./components/OnboardingTimeline'))
@@ -21,6 +22,7 @@ const Footer            = lazy(() => import('./components/Footer'))
 const CaseStudiesPage   = lazy(() => import('./pages/CaseStudiesPage'))
 const BlogPage          = lazy(() => import('./pages/BlogPage'))
 const BlogPostPage      = lazy(() => import('./pages/BlogPostPage'))
+const ExperienceRoom    = lazy(() => import('./pages/ExperienceRoom'))
 
 function HomePage() {
   return (
@@ -87,6 +89,14 @@ function AnimatedRoutes() {
               </Suspense>
             }
           />
+          <Route
+            path="/experience-room"
+            element={
+              <Suspense fallback={null}>
+                <ExperienceRoom />
+              </Suspense>
+            }
+          />
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -97,6 +107,7 @@ export default function App() {
   return (
     <ErrorBoundary>
       <AnimatedRoutes />
+      <ExperiencePopup />
     </ErrorBoundary>
   )
 }

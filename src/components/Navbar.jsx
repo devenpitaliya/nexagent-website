@@ -29,6 +29,7 @@ const NAV_LINKS = [
   { label: 'Tech Stack', href: '#tech-stack' },
   { label: 'ROI Calculator', href: '#roi-calculator' },
   { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Experience Room', href: '/experience-room' },
   { label: 'Blog', href: '/blog' },
 ]
 
@@ -38,7 +39,7 @@ export default function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const isDarkPage = location.pathname.startsWith('/blog') || location.pathname.startsWith('/case-studies')
+  const isDarkPage = location.pathname.startsWith('/blog') || location.pathname.startsWith('/case-studies') || location.pathname.startsWith('/experience-room')
   const useDarkText = scrolled || !isDarkPage
 
   useEffect(() => {
@@ -87,7 +88,16 @@ export default function Navbar() {
             {/* Desktop nav links */}
             <div className="hidden lg:flex items-center gap-8">
               {NAV_LINKS.map((link) => (
-                link.href.startsWith('#') ? (
+                link.href === '/experience-room' ? (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="relative inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold text-purple-400 border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 hover:border-purple-400/60 hover:text-purple-300 transition-all duration-200 shadow-[0_0_12px_rgba(168,85,247,0.15)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+                    {link.label}
+                  </Link>
+                ) : link.href.startsWith('#') ? (
                   <a
                     key={link.label}
                     href={link.href}
